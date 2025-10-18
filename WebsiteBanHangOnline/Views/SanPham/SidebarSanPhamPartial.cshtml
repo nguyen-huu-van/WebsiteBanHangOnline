@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebsiteBanHangOnline.Models.SanPham>
+<div class="single-block">
+@*<h3 class="sidebar-title">Danh Mục Phòng</h3>*@
+<ul>
+    @foreach (var groupItem in Model.GroupBy(m => m.LoaiSanPham))
+    {
+        if (groupItem.Key != null)
+        {
+            <li>
+                <a href="@Url.Action("SanPhamTheoLoai","SanPham",new { maLoai = groupItem.Key.MaLoaiSP })" class="sidebar-title">@groupItem.Key.TenLoai</a>
+                <ul class="sidebar-menu--shop">
+                    @foreach (var item in groupItem.GroupBy(m => m.Phong))
+                    {
+                        if (item.Key != null)
+                        {
+                            <li>
+                                <a href="@Url.Action("SanPhamTheoPhong", "SanPham", new { maLoai = groupItem.Key.MaLoaiSP, maphong = item.Key.MaPhong })">@item.Key.TenPhong</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    }
+</ul>
+</div>
+
+

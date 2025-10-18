@@ -1,0 +1,59 @@
+﻿@using WebsiteBanHangOnline.Models
+@model ItemGioHang
+@{
+    ViewBag.Title = "ChinhSuaGioHang";
+    Layout = "~/Views/Layout/_LayoutHomeProduct.cshtml";
+    List<ItemGioHang> itemGioHangs = (List<ItemGioHang>)ViewBag.ListGioHang;
+}
+<div class="Shopping-cart-area pt-60 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-content table-responsive">
+                    <table class="table">
+                        <thead style="background-color: #28a745; color: white;">
+                            <tr>
+                                <th>STT</th>
+                                <th class="fb-product-thumbnail">Hình <span style="text-transform: lowercase;">ảnh</span></th>
+                                <th class="cart-product-name">Tên <span style="text-transform: lowercase;">sản phẩm</span></th>
+                                <th class="fb-product-price">Giá</th>
+                                <th class="fb-product-quantity">Số <span style="text-transform: lowercase;">lượng</span></th>
+                                <th class="fb-product-subtotal">Tổng <span style="text-transform: lowercase;">thanh toán</span></th>
+                                <th class="fb-product-remove">Chỉnh <span style="text-transform: lowercase;">sửa</span></th>
+                                <th class="fb-product-remove">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < itemGioHangs.Count; i++)
+                            {
+                                var item = itemGioHangs[i];
+                                using (Html.BeginForm("UpdateCard", "GioHang", FormMethod.Post))
+                                {
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td>@Html.Hidden("MaSP", item.MaSP) @(i + 1)</td>
+                                        <td class="fb-product-thumbnail" style="width:90px; height:90px;"><img src="@Url.Content("~/Content/assets/image/HinhAnh/" + item.HinhAnh)" alt="FB's Product Image" /></td>
+                                        <td class="fb-product-name"><a href="@Url.Action("ChiTietSanPham", "Sanpham", new { maLoai = item.MaLoai, maphong = item.Maphong, id = item.MaSP, @tensp = item.TenSP })" style="color: #28a745;">@item.TenSP</a></td>
+                                        <td class="fb-product-price"><span class="amount">@item.DonGia.ToString("#,##")₫</span></td>
+
+                                        <td class="quantity">
+                                            <div class="cart-plus-minus">
+                                                @Html.TextBox("SoLuong", item.SoLuong, new { @class = "cart-plus-minus-box" })      
+                                            </div>
+                                        </td>
+                                        <td class="product-subtotal"><span class="amount">@item.ThanhTien.ToString("#,##")₫</span></td>
+                                        <td>
+                                            <input style="border: 0; background: #28a745; color: white; padding: 5px 10px; border-radius: 5px;" name="UpdateCard" value="Lưu" type="submit" />
+                                        </td>
+                                        <td class="fb-product-remove">
+                                            @Html.ActionLink("x", "XoaGioHang", new { @maSP = item.MaSP }, new { style = "color: red; font-weight: bold;" })
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

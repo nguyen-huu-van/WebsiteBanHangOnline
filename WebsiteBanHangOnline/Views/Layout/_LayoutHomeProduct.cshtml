@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- Mirrored from htmldemo.net/pustok/pustok/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Dec 2024 10:54:42 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pustok - Book Store HTML Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Use Minified Plugins Version For Fast Page Load -->
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/assets/css/plugins.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/assets/css/main.css" />
+    <link rel="shortcut icon" type="~/Content/assets/image/x-icon" href="~/Content/assets/image/favicon.ico">
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/modernizr-3.11.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body>
+    <div class="site-header d-none d-lg-block">
+        @Html.Action("MenuPartial", "Home")
+        @Html.Partial("~/Views/Layout/_LayoutHeaderMid.cshtml")
+    </div>
+    @RenderBody()
+    @Html.Partial("~/Views/Layout/_LayoutFooter.cshtml")
+    <!-- Use Minified Plugins Version For Fast Page Load -->
+
+    <script src="~/Content/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/assets/js/jquery-migrate-3.3.2.min.js"></script>
+    <script src="~/Content/assets/js/plugins.js"></script>
+    <script src="~/Content/assets/js/ajax-mail.js"></script>
+    <script src="~/Content/assets/js/custom.js"></script>
+</body>
+
+
+<!-- Mirrored from htmldemo.net/pustok/pustok/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Dec 2024 10:55:55 GMT -->
+</html>

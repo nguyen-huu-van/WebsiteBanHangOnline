@@ -1,0 +1,20 @@
+﻿@using WebsiteBanHangOnline.Models
+@model List<ItemGioHang>
+@{
+    List<ItemGioHang> itemGioHangs = (List<ItemGioHang>)ViewBag.ListGioHang;
+}
+<li>
+    <div class="cart-total">
+        <a href="@Url.Action("XemGioHang", "GioHang")">
+        <span class="text-number">
+            @ViewBag.TinhSoLuong
+        </span>
+        <span class="text-item">
+            Giỏ Hàng
+        </span>
+        <span class="price">
+            @ViewBag.TongTien.ToString("#,##0")₫
+        </span>
+        </a>
+    </div>
+</li>

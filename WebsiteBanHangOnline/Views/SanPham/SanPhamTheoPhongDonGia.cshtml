@@ -1,0 +1,177 @@
+﻿@using WebsiteBanHangOnline.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "SanPhamTheoPhongDonGia";
+    Layout = "~/Views/Layout/_LayoutHomeProduct.cshtml";
+}
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("DanhSachSanPham","Home")">TRANG CHỦ</a></li>
+                    <li class="breadcrumb-item active">NHÓM SẢN PHẨM</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 order-lg-2">
+                <div class="shop-toolbar with-sidebar mb--30">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-2 col-sm-6">
+                            <!-- Product View Mode -->
+                            <div class="product-view-mode">
+                                <a href="#" class="sorting-btn active" data-target="grid">
+                                    <i class="fas fa-th"></i>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="list ">
+                                    <i class="fas fa-list"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 col-sm-6  mt--10 mt-sm--0">
+                            <span class="toolbar-status">
+                                @Model.Count
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+                    @Html.Partial("~/Views/Sanpham/Sanphamstyle2Partial.cshtml")
+                </div>
+                <!-- Modal -->
+                <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
+                     aria-labelledby="quickModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="product-details-modal">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <!-- Product Details Slider Big Image-->
+                                        <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
+												"slidesToShow": 1,
+												"arrows": false,
+												"fade": true,
+												"draggable": false,
+												"swipe": false,
+												"asNavFor": ".product-slider-nav"
+												}'>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-1.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-2.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-3.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-4.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-5.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- Product Details Slider Nav -->
+                                        <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two"
+                                             data-slick-setting='{
+						"infinite":true,
+						  "autoplay": true,
+						  "autoplaySpeed": 8000,
+						  "slidesToShow": 4,
+						  "arrows": true,
+						  "prevArrow":{"buttonClass": "slick-prev","iconClass":"fa fa-chevron-left"},
+						  "nextArrow":{"buttonClass": "slick-next","iconClass":"fa fa-chevron-right"},
+						  "asNavFor": ".product-details-slider",
+						  "focusOnSelect": true
+						  }'>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-1.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-2.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-3.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-4.jpg" alt="">
+                                            </div>
+                                            <div class="single-slide">
+                                                <img src="image/products/product-details-5.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  mt--40 mt-lg--0">
+                <div class="inner-page-sidebar">
+                    @Html.Action("SidebarSanPhamPartial", "SanPham")
+                    @Html.Action("DonGia", "SanPham")
+                    <div class="single-block">
+                        <a href="#" class="promo-image sidebar">
+                            <img src="image/others/home-side-promo.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--=================================
+  Brands Slider
+===================================== -->
+<section class="section-margin">
+
+    <h2 class="sr-only">Brand Slider</h2>
+    <div class="container">
+        <div class="brand-slider sb-slick-slider border-top border-bottom" data-slick-setting='{
+                                            "autoplay": true,
+                                            "autoplaySpeed": 8000,
+                                            "slidesToShow": 6
+                                            }' data-slick-responsive='[
+                {"breakpoint":992, "settings": {"slidesToShow": 4} },
+                {"breakpoint":768, "settings": {"slidesToShow": 3} },
+                {"breakpoint":575, "settings": {"slidesToShow": 3} },
+                {"breakpoint":480, "settings": {"slidesToShow": 2} },
+                {"breakpoint":320, "settings": {"slidesToShow": 1} }
+            ]'>
+            <div class="single-slide">
+                <img src="image/others/brand-1.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-2.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-3.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-4.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-5.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-6.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-1.jpg" alt="">
+            </div>
+            <div class="single-slide">
+                <img src="image/others/brand-2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+

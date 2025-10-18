@@ -1,0 +1,13 @@
+﻿@using WebsiteBanHangOnline.Models
+@model IEnumerable<Phong>
+@foreach (var item in Model)
+{
+<li class="cat-item centen-text" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+    <a href="@Url.Action("SanPhamChiTietTheoPhong", "Home", new {maphong = item.MaPhong})">@item.TenPhong</a>
+    <img style="border-radius: 50%; margin-top: 5px; width: 90px; height: 50px;"
+         src="@Url.Content("~/Content/assets/image/Logo/" + item.Logo)"
+         alt="FB'S Product">
+</li>
+
+}
+

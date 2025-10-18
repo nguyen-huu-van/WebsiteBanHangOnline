@@ -1,0 +1,48 @@
+﻿@using WebsiteBanHangOnline.Models
+@model IEnumerable<SanPham>
+<section class="section-margin">
+    <div class="container">
+        <div class="section-title section-title--bordered">
+            <h2>SẢN PHẨM MỚI</h2>
+        </div>
+        <div class="product-slider sb-slick-slider slider-border-single-row" data-slick-setting='{
+                "autoplay": true,
+                "autoplaySpeed": 8000,
+                "slidesToShow": 5,
+                "dots":true
+            }' data-slick-responsive='[
+                {"breakpoint":1500, "settings": {"slidesToShow": 4} },
+                {"breakpoint":992, "settings": {"slidesToShow": 3} },
+                {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                {"breakpoint":480, "settings": {"slidesToShow": 1} },
+                {"breakpoint":320, "settings": {"slidesToShow": 1} }
+            ]'>
+            @foreach (var item in Model)
+            {
+                <div class="product-card">
+                    <div class="product-grid-content">
+                        <div class="product-header">
+                            <h3><a href="@Url.Action("ChiTietSanPham", "Sanpham", new { maLoai = item.MaLoaiSP, maphong = item.MaPhong, id = item.MaSP, @tensp = item.TenSP }))">@item.TenSP</a></h3>
+                        </div>
+                        <div class="product-card--body">
+                            <div class="card-image">
+                                <img src="~/Content/assets/image/HinhAnh/@item.HinhAnh" alt="" style="width: 300px; height: 300px;">
+                                <div class="hover-contents">
+                                    <a href="@Url.Action("ChiTietSanPham", "Sanpham", new { maLoai = item.MaLoaiSP, maphong = item.MaPhong, id = item.MaSP, @tensp = item.TenSP }))" class="hover-image">
+                                        <img src="~/Content/assets/image/HinhAnh/@item.HinhAnh" alt="" style="width: 300px; height: 300px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="price-block">
+                                <span class="price">@item.DonGia.Value.ToString("#,## ₫")</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+

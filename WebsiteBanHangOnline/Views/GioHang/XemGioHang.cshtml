@@ -1,0 +1,76 @@
+﻿@using WebsiteBanHangOnline.Models
+@model List<ItemGioHang>
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Layout/_LayoutHomeProduct.cshtml";
+}
+@if (Model.Count == 0)
+{
+    <div class="cart" style="text-align: center; padding: 50px 0;">
+        <div class="cart-item">
+            <div class="empty-cart" style="max-width: 500px; margin: auto;">
+                <img src="~/Content/assets/image/Cart/cart.jpg" style="width: 100%; max-width: 200px; margin-bottom: 20px;" />
+                <div class="empty-cart-text" style="font-family: Arial, sans-serif; color: #333;">
+                    <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">Chưa có sản phẩm nào trong giỏ hàng</h1>
+                    <p style="font-size: 16px; margin-bottom: 20px;">Hãy mua hàng ngàn sản phẩm chất lượng tại Shop nhé!</p>
+                    <a href="@Url.Action("DanhSachSanPham", "Home")" class="fb-btn" style="padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">Mua sắm ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="Shopping-cart-area pt-60 pb-60" style="background-color: #f9f9f9; padding: 60px 0;">
+        <div class="container" style="max-width: 1200px; margin: auto;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-content table-responsive" style="border: 1px solid #ddd; background: white; border-radius: 10px; overflow: hidden;">
+                        <table class="table" style="width: 100%; margin-bottom: 0;">
+                            <thead style="background-color: #28a745; color: white;">
+                                <tr>
+                                    <th style="padding: 15px; text-align: center;">Hình <span style="text-transform: lowercase;">ảnh</span></th>
+                                    <th style="padding: 15px; text-align: center;">Tên <span style="text-transform: lowercase;">sản phẩm</span></th>
+                                    <th style="padding: 15px; text-align: center;">Giá</th>
+                                    <th style="padding: 15px; text-align: center;">Số <span style="text-transform: lowercase;">lượng</span></th>
+                                    <th style="padding: 15px; text-align: center;">Tổng <span style="text-transform: lowercase;">thanh toán</span></th>
+                                    <th style="padding: 15px; text-align: center;">Chỉnh sửa</th>
+                                    <th style="padding: 15px; text-align: center;">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="text-align: center; padding: 15px; width: 90px; height: 90px;"><img src="@Url.Content("~/Content/assets/image/HinhAnh/" + item.HinhAnh)" style="width: 80px; height: 80px; object-fit: cover;" alt="FB's Product Image" /></td>
+                                        <td style="text-align: center; padding: 15px;"><a href="@Url.Action("ChiTietSanPham", "Sanpham", new { maLoai = item.MaLoai, maphong = item.Maphong, id = item.MaSP, @tensp = item.TenSP })" style="color: #28a745; text-decoration: none;">@item.TenSP</a></td>
+                                        <td style="text-align: center; padding: 15px; font-weight: bold; color: #333;">@item.DonGia.ToString("#,##")₫</td>
+                                        <td style="text-align: center; padding: 15px;">@item.SoLuong</td>
+                                        <td style="text-align: center; padding: 15px; font-weight: bold; color: #28a745;">@item.ThanhTien.ToString("#,##")₫</td>
+                                        <td style="text-align: center; padding: 15px;"><a href="@Url.Action("UpdateCard", new { @maSP = item.MaSP })" style="color: #28a745; text-decoration: none;">Chỉnh sửa</a></td>
+                                        <td style="text-align: center; padding: 15px;"><a href="@Url.Action("XoaGioHang", new { @maSP = item.MaSP })" style="color: red; font-weight: bold;">x</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top: 25px;">
+                        <div class="col-md-5 ms-auto" style="margin-top: 7px;">
+                            <div class="cart-page-total" style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; background: white;">
+                                <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 15px;">Cart totals</h2>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 10px; font-size: 16px;">Số lượng <span style="float: right; font-weight: bold;">@ViewBag.TinhSoLuong</span></li>
+                                    <li style="font-size: 16px;">Tổng thành tiền <span style="float: right; font-weight: bold; color: #28a745;">@ViewBag.TongTien.ToString("#,##0")₫</span></li>
+                                </ul>
+                                @using (Html.BeginForm("MuaHang", "GioHang"))
+                                {
+                                    <input class="fb-btn" type="submit" value="Mua Ngay" id="btnmuahang" style="margin-top: 33px; width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

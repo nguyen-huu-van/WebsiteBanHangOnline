@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="~/Content/assets/adminvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Vendor scripts -->
+    <script src="~/Content/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    
+    <!-- jQuery and validation scripts -->
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar Logo -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <img height="30" width="200" src="~/Content/assets/image/logo.png" alt="FB's Logo">
+            </a>
+
+            <!-- Sidebar Menu -->
+            @Html.Partial("~/Views/QuanLySanPham/MenuProductPartial.cshtml")
+            @Html.Partial("~/Views/QuanLyDatHang/MenuOrderPartial.cshtml")
+            @Html.Partial("~/Views/Quyen/MenuRolePartial.cshtml")
+            @Html.Partial("~/Views/News/MenuNews.cshtml")
+            <!-- Sidebar Toggle Button -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Login Admin Partial -->
+                        @Html.Partial("~/Views/Admin/LoginAdminPartial.cshtml")
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Main Page Content -->
+                @RenderBody()
+            </div>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/assets/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript -->
+    <script src="~/Content/assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages -->
+    <script src="~/Content/assets/admin/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/Content/assets/admin/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/Content/assets/admin/js/demo/chart-area-demo.js"></script>
+    <script src="~/Content/assets/admin/js/demo/chart-pie-demo.js"></script>
+</body>
+
+</html>

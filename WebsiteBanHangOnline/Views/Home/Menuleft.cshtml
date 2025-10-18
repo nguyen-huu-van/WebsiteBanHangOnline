@@ -1,0 +1,18 @@
+﻿@using WebsiteBanHangOnline.Models
+@model IEnumerable<Phong>
+@{
+    ViewBag.Title = "Menuleft";
+    Layout = "~/Views/Layout/_LayouHome.cshtml";
+}
+<ul class="category-menu">
+    @foreach (var item in Model)
+    {
+        <li class="cat-item has-children">
+            <a href="@Url.Action("SlideChiTietTheoPhong", "Home", new {maphong = item.MaPhong})">@item.TenPhong</a>
+        </li>
+    }
+
+
+</ul>
+
+

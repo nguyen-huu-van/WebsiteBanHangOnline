@@ -1,0 +1,45 @@
+﻿@using WebsiteBanHangOnline.Models
+@model IEnumerable<SanPham>
+<div class="single-block">
+    <h3 class="sidebar-title">DON GIA</h3>
+    @*<ul class="sidebar-menu--shop menu-type-2">
+            <li><a href="#">DON GIA</a></li>
+        </ul>*@
+</div>
+<div class="sidebar-categores-box sidebar-categores_list mt-sm-25 mt-xs-25">
+    <div class="sidebar-categores-checkbox">
+        <form>
+            <ul sidebar-menu--shop menu-type-2>
+                <li>
+
+                    @Ajax.ActionLink("1 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "1" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+
+                    @Ajax.ActionLink("2 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "2" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+                    @Ajax.ActionLink("3 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "2" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+                    @Ajax.ActionLink("4 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "3" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+                    @Ajax.ActionLink("5 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "4" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+                    @Ajax.ActionLink("6 triệu", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "5" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+
+                <li>
+                    @Ajax.ActionLink("Trên10", "SanPhamTheoPhongDonGia", "SanPham", new { @maLoai = ViewBag.MaLoai, @maphong = ViewBag.MaPhong, priceRange = "Tren10" }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result__product", InsertionMode = InsertionMode.Replace })
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

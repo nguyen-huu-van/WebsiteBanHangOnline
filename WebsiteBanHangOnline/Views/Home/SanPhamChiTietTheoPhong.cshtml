@@ -1,0 +1,62 @@
+﻿@using WebsiteBanHangOnline.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "SanPhamChiTietTheoPhong";
+    Layout = "~/Views/Layout/_LayoutHomeProduct.cshtml";
+
+}
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("DanhSachSanPham","Home")">TRANG CHỦ</a></li>
+                    <li class="breadcrumb-item active">NHÓM SẢN PHẨM</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 order-lg-2">
+                <div class="shop-toolbar with-sidebar mb--30">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-2 col-sm-6">
+                            <!-- Product View Mode -->
+                            <div class="product-view-mode">
+                                <a href="#" class="sorting-btn active" data-target="grid">
+                                    <i class="fas fa-th"></i>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="list ">
+                                    <i class="fas fa-list"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 col-sm-6  mt--10 mt-sm--0">
+                            <span class="toolbar-status">
+                                @Model.Count Sản phẩm
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+                    @Html.Partial("~/Views/Sanpham/Sanphamstyle2Partial.cshtml")
+                </div>
+            </div>
+            <div class="col-lg-3  mt--40 mt-lg--0">
+                <div class="inner-page-sidebar">
+                    @Html.Action("SidebarSanPhamPartial", "SanPham")
+                    @Html.Action("DonGia", "SanPham")
+                    <div class="single-block">
+                        <a href="#" class="promo-image sidebar">
+                            <img src="image/others/home-side-promo.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

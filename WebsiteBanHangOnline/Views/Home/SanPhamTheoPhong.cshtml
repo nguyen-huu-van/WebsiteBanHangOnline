@@ -1,0 +1,19 @@
+﻿@using WebsiteBanHangOnline.Models
+@model IEnumerable<Phong>
+
+<section class="section-margin">
+    <h2 class="sr-only">Promotion Section</h2>
+    <div class="container">
+        <div class="row space-db--30">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-4 mb--30 d-flex justify-content-center">
+                    <a href="@Url.Action("SanPhamChiTietTheoPhong", "Home",new {maphong = item.MaPhong})" class="promo-image promo-overlay">
+                        <h4 class="text-center">@item.TenPhong</h4>
+                        <img style="height:200px; width:400px"  src="@Url.Content("~/Content/assets/image/Logo/"+item.Logo)" alt="Promo Image" class="img-fluid">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>

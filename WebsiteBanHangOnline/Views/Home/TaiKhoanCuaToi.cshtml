@@ -1,0 +1,51 @@
+﻿@using WebsiteBanHangOnline.Models
+@{
+    ViewBag.Title = "TaiKhoanCuaToi";
+    Layout = "~/Views/Layout/_LayoutHomeProduct.cshtml";
+    ThanhVien thanhVien = (ThanhVien)Session["TaiKhoan"];
+}
+<div class="page-section pt-60 pb-60">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12 col-12">
+                <form action="#" method="post">
+                    <div class="login-form" style="box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 30px;">
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Họ Tên</label>
+                                <input class="form-control" type="text" value="@thanhVien.HoTen" readonly>
+                            </div>
+                            <div class="col-md-6 col-12 mb-20">
+                                <label>Tài Khoản</label>
+                                <input class="form-control" type="text" value="@thanhVien.TaiKhoan" readonly>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label>Số Điện Thoại</label>
+                                <input class="form-control" type="text" value="@thanhVien.SoDienThoai" readonly>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label>Email</label>
+                                <input class="form-control" type="text" value="@thanhVien.Email" readonly>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label>Địa Chỉ</label>
+                                <input class="form-control" type="text" value="@thanhVien.DiaChi" readonly>
+                            </div>
+                            @{
+                                WebsiteBanHangOnline.Models.QuanLyBanHangOnlineEntities2 db = new WebsiteBanHangOnline.Models.QuanLyBanHangOnlineEntities2();
+                                var loai = db.LoaiThanhViens.Find(thanhVien.MaLoaiTV);
+                                if (loai != null)
+                                {
+                                    <div class="col-md-6 mb-20">
+                                        <label>Loại Thành Viên</label>
+                                        <input class="form-control" type="text" value="@loai.TenLoai" readonly>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
